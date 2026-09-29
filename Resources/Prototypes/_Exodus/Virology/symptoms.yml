@@ -384,7 +384,7 @@
   - effects:
     - !type:VirusInjectReagentEffect
       reagent: Dexalin
-      amount: 0.6
+      amount: 0.2
     detection:
       description: pathology-autorespiration-detection
 
