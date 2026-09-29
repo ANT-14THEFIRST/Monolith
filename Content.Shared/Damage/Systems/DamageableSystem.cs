@@ -1,3 +1,4 @@
+using Content.Shared._Exodus.Virology.Behaviors;
 using Content.Shared._Shitmed.Targeting;
 // Shitmed Change
 using Content.Shared.Body.Systems;
@@ -396,6 +397,10 @@ namespace Content.Shared.Damage
 
         private void OnIrradiated(EntityUid uid, DamageableComponent component, OnIrradiatedEvent args)
         {
+            // Exodus: radiophasia symptome tweak begin
+            if (HasComp<VirusRadiophasiaComponent>(uid)) //This component has it's own radiation handling
+                return;
+            // Exodus: radiophasia symptome tweak end
             var damageValue = FixedPoint2.New(args.TotalRads);
 
             // Radiation should really just be a damage group instead of a list of types.
