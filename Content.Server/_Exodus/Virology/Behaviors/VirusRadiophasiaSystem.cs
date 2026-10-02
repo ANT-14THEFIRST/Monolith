@@ -63,7 +63,7 @@ public sealed partial class VirusRadiophasiaSystem : EntitySystem
         args.Damage += ent.Comp.HealPerDamageUnit * damageValue;
 
         if (ent.Comp.RadImmunity)
-            damageValue = 0;
+            args.Damage.DamageDict["Radiation"] = 0;
     }
     private void OnIrradiated(Entity<VirusRadiophasiaComponent> ent, ref OnIrradiatedEvent args)
     {
