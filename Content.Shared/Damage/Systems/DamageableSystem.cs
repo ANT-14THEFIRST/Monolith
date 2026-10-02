@@ -398,7 +398,8 @@ namespace Content.Shared.Damage
         private void OnIrradiated(EntityUid uid, DamageableComponent component, OnIrradiatedEvent args)
         {
             // Exodus: radiophasia symptome tweak begin
-            if (HasComp<VirusRadiophasiaComponent>(uid)) //This component has it's own radiation handling
+            if (TryComp<VirusRadiophasiaComponent>(uid, out var radiophasia)
+                && radiophasia.RadImmunity)
                 return;
             // Exodus: radiophasia symptome tweak end
             var damageValue = FixedPoint2.New(args.TotalRads);
